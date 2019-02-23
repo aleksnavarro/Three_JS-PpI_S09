@@ -111,7 +111,7 @@ var AirPlane = function(){
   this.mesh.add(sideWing);
 
   // Create the head
-  var geomHead = new THREE.BoxGeometry(30,50,15,1,1,1);
+  var geomHead = new THREE.BoxGeometry(30,40,15,1,1,1);
   var matHead = new THREE.MeshPhongMaterial({color:Colors.white, shading:THREE.FlatShading});
   var Head = new THREE.Mesh(geomHead, matHead);
   Head.position.set(30,30,0);
@@ -136,6 +136,46 @@ var AirPlane = function(){
   Eye.castShadow = true;
   Eye.receiveShadow = true;
   this.mesh.add(Eye);
+
+  // Create the feet
+    var geomFeet = new THREE.BoxGeometry(10,15,40,1,1,1);
+    var matFeet = new THREE.MeshPhongMaterial({color:Colors.lightorange, shading:THREE.FlatShading});
+    var Feet = new THREE.Mesh(geomFeet, matFeet);
+    Feet.position.set(10,-30,0);
+    Feet.castShadow = true;
+    Feet.receiveShadow = true;
+    this.mesh.add(Feet);
+
+   // Create the comb
+    var geomComb = new THREE.BoxGeometry(13,13,17,1,1,1);
+    var matComb = new THREE.MeshPhongMaterial({color:Colors.red, shading:THREE.FlatShading});
+    var Comb = new THREE.Mesh(geomComb, matComb);
+    Comb.position.set(40,20,0);
+    Comb.castShadow = true;
+    Comb.receiveShadow = true;
+    this.mesh.add(Comb);
+
+  // What is ahead goes in the chicken's ass
+    // Propeller
+
+    var geomPropeller = new THREE.BoxGeometry(20,5,10,1,1,1);
+    var matPropeller = new THREE.MeshPhongMaterial({color:Colors.brown, shading:THREE.FlatShading});
+    this.propeller = new THREE.Mesh(geomPropeller, matPropeller);
+    this.propeller.castShadow = true;
+    this.propeller.receiveShadow = true;
+
+    // Blades
+
+    var geomBlade = new THREE.BoxGeometry(1,50,20,1,1,1);
+    var matBlade = new THREE.MeshPhongMaterial({color:Colors.brownDark, shading:THREE.FlatShading});
+
+    var blade = new THREE.Mesh(geomBlade, matBlade);
+    blade.position.set(-6,0,0);
+    blade.castShadow = true;
+    blade.receiveShadow = true;
+    this.propeller.add(blade);
+    this.propeller.position.set(-40,0,0);
+    this.mesh.add(this.propeller);
 
 };
 
@@ -266,6 +306,7 @@ function updatePlane(){
   airplane.mesh.position.y += (targetY-airplane.mesh.position.y)*0.1;
   airplane.mesh.rotation.z = (targetY-airplane.mesh.position.y)*0.0128;
   airplane.mesh.rotation.x = (airplane.mesh.position.y-targetY)*0.0064;
+    airplane.propeller.rotation.x += 0.7;
 }
 
 function normalize(v,vmin,vmax,tmin, tmax){

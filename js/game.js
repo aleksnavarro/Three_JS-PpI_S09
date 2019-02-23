@@ -785,7 +785,6 @@ function createSky(){
 }
 
 function createCoins(){
-
   coinsHolder = new CoinsHolder(20);
   scene.add(coinsHolder.mesh)
 }
