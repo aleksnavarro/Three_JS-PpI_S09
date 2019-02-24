@@ -22,7 +22,7 @@ body {
 
 a {
 	text-decoration: none;
-	color: #d1b790;
+	color: #8e672c;
 	outline: none;
 }
 
@@ -46,7 +46,7 @@ a:focus {
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
 	white-space: nowrap;
-	border-top: 1px solid #d1b790;
+	border-top: 1px solid #8e672c;
 }
 
 .meta::after {
@@ -62,7 +62,7 @@ a:focus {
 .meta a {
 	display: block;
 	padding: 1em 1.35em;
-	border: 1px solid #d1b790;
+	border: 1px solid #8e672c;
 	border-top: 0;
 }
 

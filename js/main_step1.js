@@ -292,12 +292,14 @@ function createSky(){
 }
 
 function loop(){
+
   updatePlane();
   sea.moveWaves();
   sea.mesh.rotation.z += .005;
   sky.mesh.rotation.z += .01;
   renderer.render(scene, camera);
   requestAnimationFrame(loop);
+
 }
 
 function updatePlane(){
@@ -306,7 +308,7 @@ function updatePlane(){
   airplane.mesh.position.y += (targetY-airplane.mesh.position.y)*0.1;
   airplane.mesh.rotation.z = (targetY-airplane.mesh.position.y)*0.0128;
   airplane.mesh.rotation.x = (airplane.mesh.position.y-targetY)*0.0064;
-    airplane.propeller.rotation.x += 0.7;
+  airplane.propeller.rotation.x += 0.7;
 }
 
 function normalize(v,vmin,vmax,tmin, tmax){
